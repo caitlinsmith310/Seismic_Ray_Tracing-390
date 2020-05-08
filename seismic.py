@@ -33,7 +33,7 @@ plot_ray_paths(source_depth=100,phase_list=['S'],min_degrees=0, max_degrees=360,
 
 fig, ax = plt.subplots(subplot_kw=dict(polar=True))
 ax = plot_ray_paths(source_depth=100, ax=ax, fig=fig, phase_list=['P', 'PKP'],
-                    npoints=25, legend=True)
+                    npoints=1000, legend=True, verbose=True)
 
 #%%
 
@@ -102,7 +102,7 @@ def computeandplottts(Delta,t0,maxamp):
     # compute arrival times based on a epicentral distance (and depth, but
     # I fixed depth to a constant value)
     model = TauPyModel(model="iasp91")     
-    arrivals = model.get_travel_times(distance_in_degree=Delta,source_depth_in_km=33)
+    arrivals = model.get_travel_times(distance_in_degree=Delta,source_depth_in_km=32)
     #Construct vertical lines to show arrival times of predicted seismic waves
     for arrival in arrivals:
         dummy = t0+ arrival.time
